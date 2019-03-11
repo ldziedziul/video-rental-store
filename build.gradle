@@ -1,3 +1,11 @@
+buildscript {
+    ext {
+        springCloudContractVersion = "2.1.1.RELEASE"
+    }
+    dependencies {
+        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:${springCloudContractVersion}"
+    }
+}
 plugins {
     id 'org.springframework.boot' version '2.1.3.RELEASE'
     id 'java'
@@ -7,6 +15,13 @@ ext {
 }
 
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'spring-cloud-contract'
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-contract-dependencies:${springCloudContractVersion}"
+    }
+}
 
 group = 'pl.dziedziul'
 version = '0.0.1-SNAPSHOT'
@@ -33,4 +48,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation "org.spockframework:spock-spring:$spockVersion"
+    testCompile "org.springframework.cloud:spring-cloud-starter-contract-verifier"
+}
+
+contracts {
+    testFramework = 'SPOCK'
+    baseClassForTests = 'pl.dziedziul.videorentalstore.test.contract.BaseContractSpecification'
+    basePackageForTests = 'pl.dziedziul.videorentalstore.test.contract'
 }
