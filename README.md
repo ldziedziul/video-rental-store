@@ -12,3 +12,4 @@ run `./gradlew build` to test and build the project
 [0001-record-architecture-decisions.md](docs/adr/0001-record-architecture-decisions.md)
 [0002-create-modular-monolith.md](docs/adr/0002-create-modular-monolith.md)
 [0003-use-package-scope.md](docs/adr/0003-use-package-scope.md)
+[0004-use-uuid-for-ids.md](docs/adr/0004-use-uuid-for-ids.md)
