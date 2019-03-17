@@ -1,13 +1,31 @@
 Video Rental Store Application
 ==============
 
+# Requirements
+
+- JDK 11
+
 # Build
 
 see `docs/adr` for Architecture Decision Records
 
 run `./gradlew build` to test and build the project
 
-# Architecture Decision Records
+# Run
+
+To start the application just run `./gradlew bootRun`
+
+# Documentation
+
+## REST endpoints
+
+Application provides a REST API documentation using swagger.
+You can check it by [starting the application](#run) and opening the following urls:
+
+- http://localhost:8080/swagger-ui.html
+- http://localhost:8080/v2/api-docs
+
+## Architecture Decision Records
 
 [0001-record-architecture-decisions.md](docs/adr/0001-record-architecture-decisions.md)
 [0002-create-modular-monolith.md](docs/adr/0002-create-modular-monolith.md)
@@ -16,6 +34,7 @@ run `./gradlew build` to test and build the project
 [0005-assume-films-are-always-available.md](docs/adr/0005-assume-films-are-always-available.md)
 [0006-use-api-contracts.md](docs/adr/0006-use-api-contracts.md)
 [0007-introduce-acceptance-tests.md](docs/adr/0007-introduce-acceptance-tests.md)
+[0008-use-swagger-for-api-documentation.md](docs/adr/0008-use-swagger-for-api-documentation.md)
 
 # Test results
 

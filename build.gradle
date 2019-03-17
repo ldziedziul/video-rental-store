@@ -14,6 +14,7 @@ plugins {
 ext {
     spockVersion = "1.2-groovy-2.5"
     ioCucumberVersion = "4.2.6"
+    springfoxVersion = "2.9.2"
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -54,6 +55,8 @@ dependencies {
     testImplementation "io.cucumber:cucumber-java:$ioCucumberVersion"
     testImplementation "io.cucumber:cucumber-junit:$ioCucumberVersion"
     testImplementation "io.cucumber:cucumber-spring:$ioCucumberVersion"
+    runtimeOnly "io.springfox:springfox-swagger-ui:${springfoxVersion}"
+    implementation "io.springfox:springfox-swagger2:${springfoxVersion}"
 }
 
 contracts {
