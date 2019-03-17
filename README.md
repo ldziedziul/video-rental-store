@@ -7,9 +7,12 @@ Video Rental Store Application
 
 # Build
 
-see `docs/adr` for Architecture Decision Records
-
 run `./gradlew build` to test and build the project
+
+## Test results
+
+- [Unit and integration tests](build/reports/tests/test/index.html)
+- [Acceptance tests](build/reports/cucumber/cucumber-html-reports/overview-features.html)
 
 # Run
 
@@ -35,8 +38,3 @@ You can check it by [starting the application](#run) and opening the following u
 [0006-use-api-contracts.md](docs/adr/0006-use-api-contracts.md)
 [0007-introduce-acceptance-tests.md](docs/adr/0007-introduce-acceptance-tests.md)
 [0008-use-swagger-for-api-documentation.md](docs/adr/0008-use-swagger-for-api-documentation.md)
-
-# Test results
-
-- [Unit and integration tests](build/reports/tests/test/index.html)
-- [Acceptance tests](build/reports/cucumber/cucumber-html-reports/overview-features.html)
