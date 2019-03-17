@@ -9,7 +9,12 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.BufferingClientHttpRequestFactory;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.web.client.RestTemplate;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pl.dziedziul.videorentalstore.films.FilmDto;
@@ -20,6 +25,17 @@ public class FilmStepDef {
     private TestRestTemplate restTemplate;
 
     private List<FilmDto> lastReadFilms = new ArrayList<>();
+
+    @Before
+    public void setUp(final Scenario scenario) {
+        RestTemplate actualRestTemplate = this.restTemplate.getRestTemplate();
+        allowMultipleResponseReads(actualRestTemplate);
+        actualRestTemplate.setInterceptors(List.of(new CucumberLoggingRequestInterceptor(scenario)));
+    }
+
+    private void allowMultipleResponseReads(final RestTemplate actualRestTemplate) {
+        actualRestTemplate.setRequestFactory(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
+    }
 
     @When("user reads films")
     public void userReadsFilms() {
