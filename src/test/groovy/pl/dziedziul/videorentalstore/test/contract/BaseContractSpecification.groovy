@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.test.web.servlet.MockMvc
 import pl.dziedziul.videorentalstore.films.FilmDto
 import pl.dziedziul.videorentalstore.films.FilmService
+import pl.dziedziul.videorentalstore.test.TestData
 import spock.lang.Specification
 
 import static pl.dziedziul.videorentalstore.films.FilmType.NEW
@@ -21,8 +22,8 @@ abstract class BaseContractSpecification extends Specification {
     @SuppressWarnings("unused")
     FilmService filmService = Stub {
         getFilms() >> [
-                new FilmDto(UUID.fromString("12345678-1983-0000-0000-000000000000"), "Matrix 11", NEW),
-                new FilmDto(UUID.fromString("12345678-1984-0000-0000-000000000000"), "Spider Man", REGULAR)
+                new FilmDto(TestData.SOME_FILM_ID, "Matrix 11", NEW),
+                new FilmDto(TestData.SOME_OTHER_FILM_ID, "Spider Man", REGULAR)
         ]
     }
 
