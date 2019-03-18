@@ -2,6 +2,7 @@ package pl.dziedziul.videorentalstore.films.impl;
 
 import java.time.Clock;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import pl.dziedziul.videorentalstore.films.AddFilmCommand;
 import pl.dziedziul.videorentalstore.films.FilmDto;
+import pl.dziedziul.videorentalstore.films.FilmNotFoundException;
 import pl.dziedziul.videorentalstore.films.FilmService;
 
 @Service
@@ -31,6 +33,17 @@ class DefaultFilmService implements FilmService {
             .collect(Collectors.toList());
         log.info("Returning films: {}", films);
         return films;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public FilmDto getFilm(UUID id) {
+        FilmDto filmDto = filmRepository.findById(id)
+            .map(this::toDto)
+            .orElseThrow(() -> new FilmNotFoundException(id));
+
+        log.info("Returning film: {}", filmDto);
+        return filmDto;
     }
 
     @Override
