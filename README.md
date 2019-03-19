@@ -39,3 +39,4 @@ You can check it by [starting the application](#run) and opening the following u
 [0007-introduce-acceptance-tests.md](docs/adr/0007-introduce-acceptance-tests.md)
 [0008-use-swagger-for-api-documentation.md](docs/adr/0008-use-swagger-for-api-documentation.md)
 [0009-renting-film-for-different-duration.md](docs/adr/0009-renting-film-for-different-duration.md)
+[0010-handling-nonexisting-customers-in-bonus-module.md](docs/adr/0010-handling-nonexisting-customers-in-bonus-module.md)
