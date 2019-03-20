@@ -37,12 +37,22 @@ class DefaultFilmService implements FilmService {
 
     @Override
     @Transactional(readOnly = true)
-    public FilmDto getFilm(UUID id) {
+    public FilmDto getFilm(final UUID id) {
         FilmDto filmDto = filmRepository.findById(id)
             .map(this::toDto)
-            .orElseThrow(() -> new FilmNotFoundException(id));
+            .orElseThrow(() -> new FilmNotFoundException("id", id));
 
-        log.info("Returning film: {}", filmDto);
+        log.info("Returning film by id: {}", filmDto);
+        return filmDto;
+    }
+
+    @Override
+    public FilmDto getFilmByName(final String name) {
+        FilmDto filmDto = filmRepository.findByName(name)
+            .map(this::toDto)
+            .orElseThrow(() -> new FilmNotFoundException("name", name));
+
+        log.info("Returning film by name: {}", filmDto);
         return filmDto;
     }
 

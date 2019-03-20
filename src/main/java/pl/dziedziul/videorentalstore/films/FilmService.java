@@ -11,5 +11,10 @@ public interface FilmService {
      */
     FilmDto getFilm(UUID id);
 
+    /**
+     * @throws FilmNotFoundException
+     */
+    FilmDto getFilmByName(String name);
+
     FilmDto addFilm(AddFilmCommand addFilmCommand);
 }

@@ -43,6 +43,29 @@ class DefaultFilmServiceTest extends Specification {
         thrown FilmNotFoundException
     }
 
+    def "should get a film by name"() {
+        given:
+        def filmRepository = Mock(FilmRepository)
+        1 * filmRepository.findByName(MATRIX.name) >> Optional.of(MATRIX)
+        def tested = new DefaultFilmService(filmRepository, TestClock.defaultMalta())
+        when:
+        def result = tested.getFilmByName(MATRIX.name)
+        then:
+        result.name == MATRIX.name
+        result.id == MATRIX.id
+    }
+
+    def "should fail when no film with given name"() {
+        given:
+        def filmRepository = Mock(FilmRepository)
+        1 * filmRepository.findByName(_) >> Optional.empty()
+        def tested = new DefaultFilmService(filmRepository, TestClock.defaultMalta())
+        when:
+        tested.getFilmByName(TestData.SOME_NAME)
+        then:
+        thrown FilmNotFoundException
+    }
+
     def "should add film"() {
         given:
         def filmRepository = Mock(FilmRepository)
