@@ -7,12 +7,16 @@ import static org.junit.Assert.assertTrue;
 import java.util.Set;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pl.dziedziul.videorentalstore.bonus.BonusPointsDto;
 import pl.dziedziul.videorentalstore.film.FilmDto;
 import pl.dziedziul.videorentalstore.film.FilmService;
 import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand;
@@ -22,14 +26,17 @@ import pl.dziedziul.videorentalstore.rental.command.ReturnResultDto;
 
 public class RentalStepDef extends AbstractStepDef {
     private static final UUID CUSTOMER_ID = UUID.fromString("12345678-1987-0000-0000-000000000000");
+    private static final Logger log = LoggerFactory.getLogger(RentalStepDef.class);
 
     @Autowired
     private FilmService filmService;
     private RentalDto lastRental;
     private ReturnResultDto lastReturnResult;
+    private BonusPointsDto lastBonusPointsDto;
 
     @When("user want to rent {string} for {int} days")
     public void userWantToRentAFilm(String name, int days) {
+        lastBonusPointsDto = getBonusPoints();
         rentFilm(name, days);
     }
 
@@ -96,4 +103,24 @@ public class RentalStepDef extends AbstractStepDef {
         assertThat(lastReturnResult.getSurcharge()).isEqualTo(surcharge);
     }
 
+    @And("user should get {int} bonus points")
+    public void userShouldGetBonusPointsBonusPoints(final int expectedBonusPoints) {
+        sleepMillis(100);
+        BonusPointsDto bonusPoints = getBonusPoints();
+        int addedBonusPoints = bonusPoints.getPoints() - lastBonusPointsDto.getPoints();
+        assertThat(addedBonusPoints).isEqualTo(expectedBonusPoints);
+
+    }
+
+    private BonusPointsDto getBonusPoints() {
+        return restTemplate.getForObject("/bonuses/" + CUSTOMER_ID, BonusPointsDto.class);
+    }
+
+    private void sleepMillis(final int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            log.warn("Sleep interrupted", e);
+        }
+    }
 }

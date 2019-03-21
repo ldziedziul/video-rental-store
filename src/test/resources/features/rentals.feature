@@ -8,12 +8,13 @@ Feature: Rentals
   Scenario Outline: Renting a film
     When user want to rent "<film>" for <days> days
     Then film should be rented for <price> SEK
+    And user should get <bonusPoints> bonus points
     Examples:
-      | film          | days | price |
-      | Matrix 11     | 1    | 40    |
-      | Spider Man    | 5    | 90    |
-      | Spider Man 2  | 2    | 30    |
-      | Ouf of Africa | 7    | 90    |
+      | film          | days | price | bonusPoints |
+      | Matrix 11     | 1    | 40    | 2           |
+      | Spider Man    | 5    | 90    | 1           |
+      | Spider Man 2  | 2    | 30    | 1           |
+      | Ouf of Africa | 7    | 90    | 1           |
 
 
   Scenario: Renting multiple films at once
