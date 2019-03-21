@@ -10,20 +10,30 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pl.dziedziul.videorentalstore.film.FilmDto;
 import pl.dziedziul.videorentalstore.film.FilmService;
 import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand;
 import pl.dziedziul.videorentalstore.rental.command.RentalDto;
+import pl.dziedziul.videorentalstore.rental.command.ReturnFilmsCommand;
+import pl.dziedziul.videorentalstore.rental.command.ReturnResultDto;
 
 public class RentalStepDef extends AbstractStepDef {
+    private static final UUID CUSTOMER_ID = UUID.fromString("12345678-1987-0000-0000-000000000000");
+
     @Autowired
     private FilmService filmService;
     private RentalDto lastRental;
+    private ReturnResultDto lastReturnResult;
 
     @When("user want to rent {string} for {int} days")
     public void userWantToRentAFilm(String name, int days) {
+        rentFilm(name, days);
+    }
+
+    private void rentFilm(final String name, final int days) {
         Set<RentFilmsCommand.FilmToRent> filmsToRent = Set.of(filmToRent(name, days));
         ResponseEntity<RentalDto> response = restTemplate
             .postForEntity("/rentals", rentFilms(filmsToRent), RentalDto.class);
@@ -31,8 +41,7 @@ public class RentalStepDef extends AbstractStepDef {
     }
 
     private RentFilmsCommand rentFilms(final Set<RentFilmsCommand.FilmToRent> filmsToRent) {
-        UUID customerId = UUID.fromString("12345678-1987-0000-0000-000000000000");
-        return new RentFilmsCommand(customerId, filmsToRent);
+        return new RentFilmsCommand(CUSTOMER_ID, filmsToRent);
     }
 
     private RentFilmsCommand.FilmToRent filmToRent(final String filmName, final int days) {
@@ -68,4 +77,23 @@ public class RentalStepDef extends AbstractStepDef {
     public void filmsShouldBeRentedForTotalSEK(int price) {
         filmsShouldBeRentedForPriceSEK(price);
     }
+
+    @Given("user rented {string} for {int} days")
+    public void userRentedFilmForDays(final String filmName, final int days) {
+        rentFilm(filmName, days);
+    }
+
+    @When("user returns {string} after {int} days")
+    public void userReturnsAfterReturnDaysDays(final String filmName, final int returnDays) {
+        clock.windForwardDays(returnDays);
+        ResponseEntity<ReturnResultDto> response = restTemplate
+            .postForEntity("/rentals/returns", new ReturnFilmsCommand(lastRental.getId(), Set.of(filmService.getFilmByName(filmName).getId())), ReturnResultDto.class);
+        this.lastReturnResult = response.getBody();
+    }
+
+    @Then("user should pay {int} for late return")
+    public void userShouldPaySurchargeForLateReturn(final int surcharge) {
+        assertThat(lastReturnResult.getSurcharge()).isEqualTo(surcharge);
+    }
+
 }

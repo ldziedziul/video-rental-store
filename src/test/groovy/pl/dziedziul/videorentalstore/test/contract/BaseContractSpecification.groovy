@@ -9,6 +9,7 @@ import pl.dziedziul.videorentalstore.film.FilmDto
 import pl.dziedziul.videorentalstore.film.FilmService
 import pl.dziedziul.videorentalstore.rental.RentalService
 import pl.dziedziul.videorentalstore.rental.command.RentalDto
+import pl.dziedziul.videorentalstore.rental.command.ReturnResultDto
 import pl.dziedziul.videorentalstore.test.TestData
 import spock.lang.Specification
 
@@ -33,6 +34,7 @@ abstract class BaseContractSpecification extends Specification {
     @SuppressWarnings("unused")
     RentalService rentalService = Stub {
         rentFilms(_) >> new RentalDto(TestData.SOME_RENTAL_ID, TestData.SOME_PRICE)
+        returnFilms(_) >> new ReturnResultDto(TestData.SOME_PRICE)
     }
 
     def setup() {

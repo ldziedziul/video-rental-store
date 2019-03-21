@@ -15,12 +15,15 @@ abstract class AbstractStepDef {
 
     @Autowired
     protected TestRestTemplate restTemplate;
+    @Autowired
+    protected TestClock clock;
 
     @Before
     public void setUp(final Scenario scenario) {
         RestTemplate actualRestTemplate = this.restTemplate.getRestTemplate();
         allowMultipleResponseReads(actualRestTemplate);
         actualRestTemplate.setInterceptors(List.of(new CucumberLoggingRequestInterceptor(scenario)));
+        clock.reset();
     }
 
     private void allowMultipleResponseReads(final RestTemplate actualRestTemplate) {

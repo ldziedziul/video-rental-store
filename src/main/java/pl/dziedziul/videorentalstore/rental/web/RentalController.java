@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import pl.dziedziul.videorentalstore.rental.RentalService;
 import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand;
 import pl.dziedziul.videorentalstore.rental.command.RentalDto;
+import pl.dziedziul.videorentalstore.rental.command.ReturnFilmsCommand;
+import pl.dziedziul.videorentalstore.rental.command.ReturnResultDto;
 
 @RestController
 @RequestMapping(RentalController.RENTALS_PATH)
@@ -29,5 +32,12 @@ class RentalController {
     @ApiOperation("Rent films")
     RentalDto rentFilms(@RequestBody RentFilmsCommand command) {
         return rentalService.rentFilms(command);
+    }
+
+    @PostMapping("/returns")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Return rented films")
+    ReturnResultDto returnFilms(@RequestBody ReturnFilmsCommand command) {
+        return rentalService.returnFilms(command);
     }
 }

@@ -30,3 +30,29 @@ Contract.make {
         }
     }
 }
+
+
+Contract.make {
+    request {
+        method 'POST'
+        url '/rentals/returns'
+        headers {
+            header('Content-Type', 'application/json;charset=UTF-8')
+        }
+        body("""{
+  "rentalId": "12345678-1990-0000-0000-000000000000",
+  "filmsToReturn": ["12345678-1985-0000-0000-000000000000"]
+}
+""")
+    }
+    response {
+        status OK()
+        body("""{
+    "surcharge": 123
+  }
+  """)
+        headers {
+            header('Content-Type': 'application/json;charset=UTF-8')
+        }
+    }
+}
