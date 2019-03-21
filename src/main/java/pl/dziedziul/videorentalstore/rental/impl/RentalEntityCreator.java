@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import lombok.NonNull;
-import pl.dziedziul.videorentalstore.films.FilmService;
+import pl.dziedziul.videorentalstore.film.FilmService;
 import pl.dziedziul.videorentalstore.rental.RentFilmsCommand;
 
 @Component

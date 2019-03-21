@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import lombok.NonNull;
-import pl.dziedziul.videorentalstore.films.FilmDto;
-import pl.dziedziul.videorentalstore.films.FilmType;
+import pl.dziedziul.videorentalstore.film.FilmDto;
+import pl.dziedziul.videorentalstore.film.FilmType;
 
 @Component
 class FilmPriceCalculator {

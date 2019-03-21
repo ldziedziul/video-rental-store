@@ -3,7 +3,7 @@ package pl.dziedziul.videorentalstore.rental.impl;
 import org.springframework.stereotype.Component;
 
 import lombok.NonNull;
-import pl.dziedziul.videorentalstore.films.FilmType;
+import pl.dziedziul.videorentalstore.film.FilmType;
 
 @Component
 class NewFilmPricePolicy implements FilmPricePolicy {

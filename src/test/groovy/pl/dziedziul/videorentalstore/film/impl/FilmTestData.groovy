@@ -1,6 +1,6 @@
-package pl.dziedziul.videorentalstore.films.impl
+package pl.dziedziul.videorentalstore.film.impl
 
-import pl.dziedziul.videorentalstore.films.FilmType
+import pl.dziedziul.videorentalstore.film.FilmType
 
 import static pl.dziedziul.videorentalstore.test.TestData.SOME_INSTANT
 

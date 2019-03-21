@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 import lombok.NonNull;
-import pl.dziedziul.videorentalstore.films.FilmType;
+import pl.dziedziul.videorentalstore.film.FilmType;
 
 @Component
 @ConfigurationProperties(prefix = "rental")

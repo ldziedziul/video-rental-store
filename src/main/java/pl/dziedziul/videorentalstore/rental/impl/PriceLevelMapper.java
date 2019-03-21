@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
 import lombok.NonNull;
-import pl.dziedziul.videorentalstore.films.FilmType;
+import pl.dziedziul.videorentalstore.film.FilmType;
 
 @Component
 class PriceLevelMapper {

@@ -1,7 +1,7 @@
 package pl.dziedziul.videorentalstore.rental.impl
 
-import pl.dziedziul.videorentalstore.films.FilmDto
-import pl.dziedziul.videorentalstore.films.FilmType
+import pl.dziedziul.videorentalstore.film.FilmDto
+import pl.dziedziul.videorentalstore.film.FilmType
 import pl.dziedziul.videorentalstore.test.TestData
 import spock.lang.Specification
 

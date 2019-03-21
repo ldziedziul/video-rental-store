@@ -1,4 +1,4 @@
-package pl.dziedziul.videorentalstore.films.web;
+package pl.dziedziul.videorentalstore.film.web;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import pl.dziedziul.videorentalstore.films.FilmDto;
-import pl.dziedziul.videorentalstore.films.FilmService;
+import pl.dziedziul.videorentalstore.film.FilmDto;
+import pl.dziedziul.videorentalstore.film.FilmService;
 
 @RestController
 @RequestMapping(FilmController.FILMS_PATH)

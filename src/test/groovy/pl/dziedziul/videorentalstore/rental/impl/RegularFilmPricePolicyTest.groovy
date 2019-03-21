@@ -1,6 +1,6 @@
 package pl.dziedziul.videorentalstore.rental.impl
 
-import pl.dziedziul.videorentalstore.films.FilmType
+import pl.dziedziul.videorentalstore.film.FilmType
 import spock.lang.Specification
 
 class RegularFilmPricePolicyTest extends Specification {

@@ -1,9 +1,9 @@
 package pl.dziedziul.videorentalstore.rental.impl
 
-import pl.dziedziul.videorentalstore.films.FilmDto
-import pl.dziedziul.videorentalstore.films.FilmNotFoundException
-import pl.dziedziul.videorentalstore.films.FilmService
-import pl.dziedziul.videorentalstore.films.FilmType
+import pl.dziedziul.videorentalstore.film.FilmDto
+import pl.dziedziul.videorentalstore.film.FilmNotFoundException
+import pl.dziedziul.videorentalstore.film.FilmService
+import pl.dziedziul.videorentalstore.film.FilmType
 import pl.dziedziul.videorentalstore.rental.RentFilmsCommand
 import pl.dziedziul.videorentalstore.test.TestClock
 import pl.dziedziul.videorentalstore.test.TestData

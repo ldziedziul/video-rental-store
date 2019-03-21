@@ -1,15 +1,15 @@
-package pl.dziedziul.videorentalstore.films.impl;
+package pl.dziedziul.videorentalstore.film.impl;
 
-import static pl.dziedziul.videorentalstore.films.FilmType.NEW;
-import static pl.dziedziul.videorentalstore.films.FilmType.OLD;
-import static pl.dziedziul.videorentalstore.films.FilmType.REGULAR;
+import static pl.dziedziul.videorentalstore.film.FilmType.NEW;
+import static pl.dziedziul.videorentalstore.film.FilmType.OLD;
+import static pl.dziedziul.videorentalstore.film.FilmType.REGULAR;
 
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import pl.dziedziul.videorentalstore.films.AddFilmCommand;
-import pl.dziedziul.videorentalstore.films.FilmService;
+import pl.dziedziul.videorentalstore.film.AddFilmCommand;
+import pl.dziedziul.videorentalstore.film.FilmService;
 
 @Component
 class SampleDataInitializer {

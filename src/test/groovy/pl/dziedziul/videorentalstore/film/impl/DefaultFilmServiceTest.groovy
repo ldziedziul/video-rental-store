@@ -1,12 +1,14 @@
-package pl.dziedziul.videorentalstore.films.impl
+package pl.dziedziul.videorentalstore.film.impl
 
-import pl.dziedziul.videorentalstore.films.AddFilmCommand
-import pl.dziedziul.videorentalstore.films.FilmNotFoundException
+import pl.dziedziul.videorentalstore.film.AddFilmCommand
+import pl.dziedziul.videorentalstore.film.FilmNotFoundException
 import pl.dziedziul.videorentalstore.test.TestClock
 import pl.dziedziul.videorentalstore.test.TestData
 import spock.lang.Specification
 
-import static pl.dziedziul.videorentalstore.films.impl.FilmTestData.*
+import static pl.dziedziul.videorentalstore.film.impl.FilmTestData.MATRIX
+import static pl.dziedziul.videorentalstore.film.impl.FilmTestData.OUT_OF_AFRICA
+import static pl.dziedziul.videorentalstore.film.impl.FilmTestData.SPIDERMAN
 
 class DefaultFilmServiceTest extends Specification {
     def "should get films"() {

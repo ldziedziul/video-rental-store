@@ -5,15 +5,15 @@ import org.spockframework.spring.SpringBean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.test.web.servlet.MockMvc
-import pl.dziedziul.videorentalstore.films.FilmDto
-import pl.dziedziul.videorentalstore.films.FilmService
+import pl.dziedziul.videorentalstore.film.FilmDto
+import pl.dziedziul.videorentalstore.film.FilmService
 import pl.dziedziul.videorentalstore.rental.RentalDto
 import pl.dziedziul.videorentalstore.rental.RentalService
 import pl.dziedziul.videorentalstore.test.TestData
 import spock.lang.Specification
 
-import static pl.dziedziul.videorentalstore.films.FilmType.NEW
-import static pl.dziedziul.videorentalstore.films.FilmType.REGULAR
+import static pl.dziedziul.videorentalstore.film.FilmType.NEW
+import static pl.dziedziul.videorentalstore.film.FilmType.REGULAR
 
 @WebMvcTest
 abstract class BaseContractSpecification extends Specification {

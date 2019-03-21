@@ -1,4 +1,4 @@
-package pl.dziedziul.videorentalstore.films.impl;
+package pl.dziedziul.videorentalstore.film.impl;
 
 import java.util.List;
 import java.util.Optional;

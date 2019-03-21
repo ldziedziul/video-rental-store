@@ -1,4 +1,4 @@
-package pl.dziedziul.videorentalstore.films.impl;
+package pl.dziedziul.videorentalstore.film.impl;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
-import pl.dziedziul.videorentalstore.films.FilmType;
+import pl.dziedziul.videorentalstore.film.FilmType;
 
 @Data
 @NoArgsConstructor

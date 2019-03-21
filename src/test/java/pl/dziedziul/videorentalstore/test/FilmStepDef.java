@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pl.dziedziul.videorentalstore.films.FilmDto;
+import pl.dziedziul.videorentalstore.film.FilmDto;
 
 public class FilmStepDef extends AbstractStepDef {
 

@@ -1,4 +1,4 @@
-package pl.dziedziul.videorentalstore.films.impl;
+package pl.dziedziul.videorentalstore.film.impl;
 
 import java.time.Clock;
 import java.util.List;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.dziedziul.videorentalstore.films.AddFilmCommand;
-import pl.dziedziul.videorentalstore.films.FilmDto;
-import pl.dziedziul.videorentalstore.films.FilmNotFoundException;
-import pl.dziedziul.videorentalstore.films.FilmService;
+import pl.dziedziul.videorentalstore.film.AddFilmCommand;
+import pl.dziedziul.videorentalstore.film.FilmDto;
+import pl.dziedziul.videorentalstore.film.FilmNotFoundException;
+import pl.dziedziul.videorentalstore.film.FilmService;
 
 @Service
 @Slf4j

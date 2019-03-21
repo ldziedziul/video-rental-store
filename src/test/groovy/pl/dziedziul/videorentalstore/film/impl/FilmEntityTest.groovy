@@ -1,9 +1,9 @@
-package pl.dziedziul.videorentalstore.films.impl
+package pl.dziedziul.videorentalstore.film.impl
 
 
 import spock.lang.Specification
 
-import static pl.dziedziul.videorentalstore.films.FilmType.REGULAR
+import static pl.dziedziul.videorentalstore.film.FilmType.REGULAR
 import static pl.dziedziul.videorentalstore.test.TestData.SOME_INSTANT
 import static pl.dziedziul.videorentalstore.test.TestData.SOME_NAME
 
