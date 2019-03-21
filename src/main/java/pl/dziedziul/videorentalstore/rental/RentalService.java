@@ -7,4 +7,9 @@ import pl.dziedziul.videorentalstore.rental.command.ReturnResultDto;
 
 public interface RentalService {
     RentalDto rentFilms(RentFilmsCommand command);
+
+    /**
+     * @throws RentedFilmNotFoundException
+     */
+    ReturnResultDto returnFilms(ReturnFilmsCommand command);
 }
