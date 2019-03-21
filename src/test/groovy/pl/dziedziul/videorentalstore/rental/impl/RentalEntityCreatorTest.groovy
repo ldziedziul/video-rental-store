@@ -4,7 +4,7 @@ import pl.dziedziul.videorentalstore.film.FilmDto
 import pl.dziedziul.videorentalstore.film.FilmNotFoundException
 import pl.dziedziul.videorentalstore.film.FilmService
 import pl.dziedziul.videorentalstore.film.FilmType
-import pl.dziedziul.videorentalstore.rental.RentFilmsCommand
+import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand
 import pl.dziedziul.videorentalstore.test.TestClock
 import pl.dziedziul.videorentalstore.test.TestData
 import spock.lang.Specification

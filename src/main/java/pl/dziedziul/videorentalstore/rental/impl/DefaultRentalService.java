@@ -8,9 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import pl.dziedziul.videorentalstore.customer.CustomerService;
-import pl.dziedziul.videorentalstore.rental.RentFilmsCommand;
-import pl.dziedziul.videorentalstore.rental.RentalDto;
 import pl.dziedziul.videorentalstore.rental.RentalService;
+import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand;
+import pl.dziedziul.videorentalstore.rental.command.RentalDto;
 
 @Slf4j
 @Service

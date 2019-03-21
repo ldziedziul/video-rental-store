@@ -2,8 +2,8 @@ package pl.dziedziul.videorentalstore.rental.impl
 
 import pl.dziedziul.videorentalstore.customer.CustomerNotFoundException
 import pl.dziedziul.videorentalstore.customer.CustomerService
-import pl.dziedziul.videorentalstore.rental.RentFilmsCommand
-import pl.dziedziul.videorentalstore.rental.RentalDto
+import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand
+import pl.dziedziul.videorentalstore.rental.command.RentalDto
 import pl.dziedziul.videorentalstore.test.TestData
 import spock.lang.Specification
 

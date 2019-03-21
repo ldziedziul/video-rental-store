@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.NonNull;
 import pl.dziedziul.videorentalstore.film.FilmService;
-import pl.dziedziul.videorentalstore.rental.RentFilmsCommand;
+import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand;
 
 @Component
 class RentalEntityCreator {

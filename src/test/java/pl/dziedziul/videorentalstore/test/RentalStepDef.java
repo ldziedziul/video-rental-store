@@ -14,8 +14,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pl.dziedziul.videorentalstore.film.FilmDto;
 import pl.dziedziul.videorentalstore.film.FilmService;
-import pl.dziedziul.videorentalstore.rental.RentFilmsCommand;
-import pl.dziedziul.videorentalstore.rental.RentalDto;
+import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand;
+import pl.dziedziul.videorentalstore.rental.command.RentalDto;
 
 public class RentalStepDef extends AbstractStepDef {
     @Autowired

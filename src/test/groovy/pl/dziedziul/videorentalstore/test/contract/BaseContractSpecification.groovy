@@ -7,8 +7,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.test.web.servlet.MockMvc
 import pl.dziedziul.videorentalstore.film.FilmDto
 import pl.dziedziul.videorentalstore.film.FilmService
-import pl.dziedziul.videorentalstore.rental.RentalDto
 import pl.dziedziul.videorentalstore.rental.RentalService
+import pl.dziedziul.videorentalstore.rental.command.RentalDto
 import pl.dziedziul.videorentalstore.test.TestData
 import spock.lang.Specification
 

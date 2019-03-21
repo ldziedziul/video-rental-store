@@ -1,4 +1,4 @@
-package pl.dziedziul.videorentalstore.rental;
+package pl.dziedziul.videorentalstore.rental.command;
 
 import java.util.UUID;
 

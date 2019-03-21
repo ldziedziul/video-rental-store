@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
-import pl.dziedziul.videorentalstore.rental.RentFilmsCommand;
-import pl.dziedziul.videorentalstore.rental.RentalDto;
 import pl.dziedziul.videorentalstore.rental.RentalService;
+import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand;
+import pl.dziedziul.videorentalstore.rental.command.RentalDto;
 
 @RestController
 @RequestMapping(RentalController.RENTALS_PATH)
