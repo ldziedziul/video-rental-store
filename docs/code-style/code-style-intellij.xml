@@ -1,4 +1,8 @@
-<code_scheme name="code-style-intellij" version="173">
+<code_scheme name="code-style-intellij copy" version="173">
+    <GroovyCodeStyleSettings>
+        <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="99"/>
+        <option name="NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND" value="99"/>
+    </GroovyCodeStyleSettings>
     <JavaCodeStyleSettings>
         <option name="GENERATE_FINAL_PARAMETERS" value="true"/>
         <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="99"/>
