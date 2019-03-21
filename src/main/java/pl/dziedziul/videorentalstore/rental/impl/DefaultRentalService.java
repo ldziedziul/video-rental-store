@@ -4,12 +4,14 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import pl.dziedziul.videorentalstore.customer.CustomerService;
+import pl.dziedziul.videorentalstore.rental.FilmRentedEvent;
 import pl.dziedziul.videorentalstore.rental.RentalService;
 import pl.dziedziul.videorentalstore.rental.RentedFilmNotFoundException;
 import pl.dziedziul.videorentalstore.rental.command.RentFilmsCommand;
@@ -26,26 +28,35 @@ class DefaultRentalService implements RentalService {
     private final RentalEntityCreator rentalEntityCreator;
     private final RentedFilmRepository rentedFilmRepository;
     private final SurchargeCalculator surchargeCalculator;
+    private final ApplicationEventPublisher applicationEventPublisher;
+
 
     DefaultRentalService(
         final @NonNull CustomerService customerService,
         final @NonNull RentalRepository rentalRepository,
         final @NonNull RentalEntityCreator rentalEntityCreator,
-        final @NonNull RentedFilmRepository rentedFilmRepository, final SurchargeCalculator surchargeCalculator) {
+        final @NonNull RentedFilmRepository rentedFilmRepository, final SurchargeCalculator surchargeCalculator, final ApplicationEventPublisher applicationEventPublisher) {
         this.customerService = customerService;
         this.rentalRepository = rentalRepository;
         this.rentalEntityCreator = rentalEntityCreator;
         this.rentedFilmRepository = rentedFilmRepository;
         this.surchargeCalculator = surchargeCalculator;
+        this.applicationEventPublisher = applicationEventPublisher;
     }
 
     @Override
     @Transactional
     public RentalDto rentFilms(final RentFilmsCommand command) {
         log.info("Renting films: " + command);
-        validateCustomerExistence(command.getCustomerId());
+        UUID customerId = command.getCustomerId();
+        validateCustomerExistence(customerId);
         RentalEntity rentalEntity = rentalRepository.save(rentalEntityCreator.create(command));
+        command.getFilmsToRent().forEach(filmToRent -> publishFilmRentedEvent(filmToRent, customerId));
         return new RentalDto(rentalEntity.getId(), rentalEntity.getTotalPrice());
+    }
+
+    private void publishFilmRentedEvent(final @NonNull RentFilmsCommand.FilmToRent filmToRent, final @NonNull UUID customerId) {
+        applicationEventPublisher.publishEvent(new FilmRentedEvent(this, filmToRent.getFilmId(), customerId));
     }
 
     @Override
