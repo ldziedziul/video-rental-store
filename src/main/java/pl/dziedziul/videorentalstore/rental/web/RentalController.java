@@ -1,5 +1,7 @@
 package pl.dziedziul.videorentalstore.rental.web;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,14 +32,14 @@ class RentalController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Rent films")
-    RentalDto rentFilms(@RequestBody RentFilmsCommand command) {
+    RentalDto rentFilms(@Valid @RequestBody RentFilmsCommand command) {
         return rentalService.rentFilms(command);
     }
 
     @PostMapping("/returns")
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Return rented films")
-    ReturnResultDto returnFilms(@RequestBody ReturnFilmsCommand command) {
+    ReturnResultDto returnFilms(@Valid @RequestBody ReturnFilmsCommand command) {
         return rentalService.returnFilms(command);
     }
 }
