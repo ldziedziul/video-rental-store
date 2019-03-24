@@ -17,6 +17,7 @@ run `./gradlew build` to test and build the project
 # Run
 
 To start the application just run `./gradlew bootRun`
+Application is also deployed on https://video-rental-store-test.herokuapp.com
 
 # Documentation
 
