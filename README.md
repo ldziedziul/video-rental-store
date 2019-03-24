@@ -42,3 +42,4 @@ You can check it by [starting the application](#run) and opening the following u
 [0010-handling-nonexisting-customers-in-bonus-module.md](docs/adr/0010-handling-nonexisting-customers-in-bonus-module.md)
 [0011-returning-film-with-changed-pricing.md](docs/adr/0011-returning-film-with-changed-pricing.md)
 [0012-skip-security-layer.md](docs/adr/0012-skip-security-layer.md)
+[0013-database-migration.md](docs/adr/0013-database-migration.md)
