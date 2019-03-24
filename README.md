@@ -43,3 +43,17 @@ You can check it by [starting the application](#run) and opening the following u
 [0011-returning-film-with-changed-pricing.md](docs/adr/0011-returning-film-with-changed-pricing.md)
 [0012-skip-security-layer.md](docs/adr/0012-skip-security-layer.md)
 [0013-database-migration.md](docs/adr/0013-database-migration.md)
+
+
+# Possible improvements
+
+- Split domain model from JPA model. Currently we use JPA model as a domain model.
+- Prepare Dockerfile for containerization
+- Use Liquibase or Flyway for database migration
+- Use tools to enforce modular architecture (e.g. ArchUnit)
+- Add security layer
+- Add API versioning
+- Create load tests
+- Add feature toggles
+- Add caching
+- Expose metrics
