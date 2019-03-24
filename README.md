@@ -15,3 +15,9 @@ run `./gradlew build` to test and build the project
 [0004-use-uuid-for-ids.md](docs/adr/0004-use-uuid-for-ids.md)
 [0005-assume-films-are-always-available.md](docs/adr/0005-assume-films-are-always-available.md)
 [0006-use-api-contracts.md](docs/adr/0006-use-api-contracts.md)
+[0007-introduce-acceptance-tests.md](docs/adr/0007-introduce-acceptance-tests.md)
+
+# Test results
+
+- [Unit and integration tests](build/reports/tests/test/index.html)
+- [Acceptance tests](build/reports/cucumber/cucumber-html-reports/overview-features.html)
