@@ -30,19 +30,19 @@ You can check it by [starting the application](#run) and opening the following u
 
 ## Architecture Decision Records
 
-[0001-record-architecture-decisions.md](docs/adr/0001-record-architecture-decisions.md)
-[0002-create-modular-monolith.md](docs/adr/0002-create-modular-monolith.md)
-[0003-use-package-scope.md](docs/adr/0003-use-package-scope.md)
-[0004-use-uuid-for-ids.md](docs/adr/0004-use-uuid-for-ids.md)
-[0005-assume-films-are-always-available.md](docs/adr/0005-assume-films-are-always-available.md)
-[0006-use-api-contracts.md](docs/adr/0006-use-api-contracts.md)
-[0007-introduce-acceptance-tests.md](docs/adr/0007-introduce-acceptance-tests.md)
-[0008-use-swagger-for-api-documentation.md](docs/adr/0008-use-swagger-for-api-documentation.md)
-[0009-renting-film-for-different-duration.md](docs/adr/0009-renting-film-for-different-duration.md)
-[0010-handling-nonexisting-customers-in-bonus-module.md](docs/adr/0010-handling-nonexisting-customers-in-bonus-module.md)
-[0011-returning-film-with-changed-pricing.md](docs/adr/0011-returning-film-with-changed-pricing.md)
-[0012-skip-security-layer.md](docs/adr/0012-skip-security-layer.md)
-[0013-database-migration.md](docs/adr/0013-database-migration.md)
+- [0001-record-architecture-decisions.md](docs/adr/0001-record-architecture-decisions.md)
+- [0002-create-modular-monolith.md](docs/adr/0002-create-modular-monolith.md)
+- [0003-use-package-scope.md](docs/adr/0003-use-package-scope.md)
+- [0004-use-uuid-for-ids.md](docs/adr/0004-use-uuid-for-ids.md)
+- [0005-assume-films-are-always-available.md](docs/adr/0005-assume-films-are-always-available.md)
+- [0006-use-api-contracts.md](docs/adr/0006-use-api-contracts.md)
+- [0007-introduce-acceptance-tests.md](docs/adr/0007-introduce-acceptance-tests.md)
+- [0008-use-swagger-for-api-documentation.md](docs/adr/0008-use-swagger-for-api-documentation.md)
+- [0009-renting-film-for-different-duration.md](docs/adr/0009-renting-film-for-different-duration.md)
+- [0010-handling-nonexisting-customers-in-bonus-module.md](docs/adr/0010-handling-nonexisting-customers-in-bonus-module.md)
+- [0011-returning-film-with-changed-pricing.md](docs/adr/0011-returning-film-with-changed-pricing.md)
+- [0012-skip-security-layer.md](docs/adr/0012-skip-security-layer.md)
+- [0013-database-migration.md](docs/adr/0013-database-migration.md)
 
 
 # Possible improvements
