@@ -7,3 +7,9 @@ pipelines:
           - gradle
         script:
           - bash ./gradlew build
+    - step:
+        name: Deploy to test
+        deployment: test
+        script:
+          - git fetch --unshallow origin
+          - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/video-rental-store-test.git HEAD
